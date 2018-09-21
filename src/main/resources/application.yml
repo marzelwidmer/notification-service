@@ -1,0 +1,42 @@
+spring:
+
+  jackson:
+    default-property-inclusion: non_null
+
+  mail:
+    host: smtp.mailhost.com
+    username : mailUser
+    password : mailPass
+    port : 587
+    properties:
+      mail.smtp.auth : true
+      mail.smtp.starttls.enable : true
+
+server:
+  port: 8064
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+fcm:
+  service-account-file: ../firebase-adminsdk-5bks7-92ef88a014.json
+
+---
+# No Spring Cloud Infrastructure is needed
+spring:
+  profiles: standalone
+
+# Logging
+logging:
+  pattern:
+     console: "%clr(%d{yy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint}
+          %clr([${spring.zipkin.service.name:${spring.application.name:-}},){magenta}%clr(%X{X-B3-TraceId:-},){yellow}%clr(%X{X-B3-SpanId:-},){cyan}%clr(,%X{X-Span-Export:-}]){blue}%clr([%8.15t]){cyan}
+          %clr(%-40.40logger{0}){blue} %clr(:){red} %clr(%m){faint}%n"
+  level:
+    root: WARN
+    org.springframework.web: INFO
+    org.springframework.security: INFO
