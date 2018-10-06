@@ -12,16 +12,8 @@ class IcndbClient {
 
     private final val log = LoggerFactory.getLogger(IcndbClient::class.java)
 
-    private val restTemplate: RestTemplate
-
-    private var id = 0
-
-    init {
-        this.restTemplate = RestTemplate()
-    }
-
     fun getChuckQuotes(): String? {
-        val joke = this.restTemplate.getForObject("http://api.icndb.com/jokes/random",
+        val joke = RestTemplate().getForObject("http://api.icndb.com/jokes/random",
                 IcndbJoke::class.java)
         return HtmlEscape.unescapeHtml(joke.toString())
     }
