@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'ch.keepcalm.cloud'
+version = '0.0.1-SNAPSHOT'
+
+description = """notification-service"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.0.5.RELEASE'
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version:'2.9.6'
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version:'1.2.51'
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version:'1.2.51'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version:'2.0.5.RELEASE'
+    compile group: 'com.google.firebase', name: 'firebase-admin', version:'6.4.0'
+    compile group: 'org.unbescape', name: 'unbescape', version:'1.1.6.RELEASE'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'2.0.5.RELEASE'
+}
