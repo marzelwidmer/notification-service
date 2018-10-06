@@ -1,0 +1,29 @@
+https://console.developers.google.com/apis/api/fcm.googleapis.com/overview?project=foobar&duration=PT1H
+
+https://console.firebase.google.com/project/foobar/notification/reporting
+
+
+Sample _firebase-adminsdk-5bks7-92ef88a014.json_ file
+```
+{
+  "type": "service_account",
+  "project_id": "foobar",
+  "private_key_id": "92ef88a0146d7ce788958eff5486c3552768a282",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nbarfooMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDLbbIdU7Oaym3a\ngBZshOpSAURm5CZXfG6NfUNrj14pcAZ1XQ3XKvKL3Zt6VN0EifojjC2rYf1dJRRR\nj73rHHwYjVXMRYJR08JGaoXw7q56Z3natl4wNcmhmYLe2INjnlLbwwsdra+KImLE\nsh1KabD4E/h04WROFkKd8w5kNmjc6R6kbUAl4VU/5ReKg7i88QUc1jm1u0XcnuiQ\nHXhXQMSJLUNaceRkI169vbS2GSFycYrRdnNlNSdAEhHnc1TEC0u50D+eCCpS+m3Z\nusdfGBils9HgfSe8aqdWc/QY3znDyPWP+ZLZ1Q+F3LsFcZ4Si5jw2T1A5Em0vZIP\nJ4ccdIvjAgMBAAECggEAIMtFTG8C5DA/91pwwvvGXoPvx/p9p9raY5rO9Jb/IgT6\nNY9TvN0ijqOh/d2SZ7nqhjKB5j/8vThOBzv57N4Br1+RdkW6VYCisAFaKFYB8J+f\nyD9f/bueDpwVueEDhVqvltfhgd5PDyCt9XGVQTq6mbN2eTkgl2oFQTs+la8jxoDQ\nSeKgDmAqUGvalJ3fXqd4kTkiwLalSRntWxnst30FFPA+PJIzjFVdTS12q1WZyqX1\nFNJSCckIaD9PEkF4E4gZpHTzoGhor1qcZ4SSFzaJ/dGU+Psb5skEBLv27EwKcU5d\n8X4EPuTeBq65Kd926+1Xs3G7G+XL6heofFYc6zPz4QKBgQD8T02cdebfiGCJ4E8m\nTdCAezEPXdTFDI4I58H5aaq+aoK8M5yfQRnAf4f0Z20MOrrqvmn2RC87gnvvORAZ\n0D+VlSFo0mEI88iRHzRk3Hj8Ex44OyoTPrOdsxcYuMEATv6jcHd9vTtz4dT3du1S\nnE2KfiW9Unv1QAhwVu9JfZUBsQKBgQDOZ18gPAcj3+5SSaJQdvUddqR2mhDDEPm4\n1sbwtORZSAtyj1SgA6Lpd4vMjIDHdFhlzeh8KD4CxwTpYrOGC0VxjmNhwFYNJQ67\nst5aRua1iK8rPGcMmCcotVF6CIxcRIbhSG9oIQ5ILQ/7XtCmx2KtrL+BP64xOg4F\nZM1gQ2FX0wKBgQCRFDiYYuMiXZTFMwnQCKZ/ela3c0jJFXMGg9zxwWTAoRYTicnh\neNmJ6ssOKfp2Mb8RA/SB+qr+GQWShMlRToGBTYMsduv87dDCQaMq6+tVZtjVlI+Z\nCVDWuQfq2zF/L+0TpbPPxWPOOmju8p98BQxBOlAREMDeQLeZgSOOqntnwQKBgQCW\nQYBpeemEvzbCJqKHyyGDUmRFhsCfEJOKcKgggL8fE6hpvFfRqPQG26Ukwj/ZcyQK\n8IvHHpCN+w3jTJv9/+SM1ygX+ClspkaEc6EUvTqkep1ybyVhcL5JDz4CBYkQfj5m\ncBHSDwZTmqJgztQ8JTf70J8U2yPW6DleydQMuOB7SwKBgC2w3j/Lje9GFgoQ7AiO\nPa4ttK/uyF0nRKrjGfSOF+lasNWTGPGoEpMbddFUMFAa6kvmlVCTBWpIIIKeAIpi\n/nJwPq0CspemiumUTvp72eFE3HHvK1iTmW3pXZuR3eIgPi2PYYUwBpbvuPfcmEB2\nY07NmZhowJyQ0wnK284FAIZA\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-5bks7@foobar.iam.gserviceaccount.com",
+  "client_id": "107508236045983604278",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-5bks7%40foobar.iam.gserviceaccount.com"
+}
+```
+
+```
+$ http POST  :8064/register token==el7Ba91kfII:APA91bHFmpRJoW_GpwlILaT8BVd7eprHAZJ-cpFgG6ws50CTzJYqP-QcQa924jfB9ngOjlOQCQ2WJuzMUHjFS44OQ0Z758EgpxiKiMlER5BlMecGRC7T74OEebBrdreu1rNk1nofZN0n
+```
+
+
+```
+$ http POST  :8064/unregister token==el7Ba91kfII:APA91bHFmpRJoW_GpwlILaT8BVd7eprHAZJ-cpFgG6ws50CTzJYqP-QcQa924jfB9ngOjlOQCQ2WJuzMUHjFS44OQ0Z758EgpxiKiMlER5BlMecGRC7T74OEebBrdreu1rNk1nofZN0n
+```
