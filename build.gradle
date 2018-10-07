@@ -1,10 +1,18 @@
+import groovy.transform.Field
+
 buildscript {
     ext {
-        kotlinVersion = '1.2.51'
         springBootVersion = '2.0.5.RELEASE'
+        kotlinVersion = '1.2.70'
+        coroutines_version = '0.30.1'
+        firebaseAdmin_version = '6.4.0'
+        unbescape_version = '1.1.6.RELEASE'
+        jackson_version = '2.9.6'
     }
+
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -39,16 +47,27 @@ compileTestKotlin {
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.5.RELEASE'
-    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.9.6'
-    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: '1.2.51'
-    compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: '1.2.51'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.0.5.RELEASE'
-    compile group: 'com.google.firebase', name: 'firebase-admin', version: '6.4.0'
-    compile group: 'org.unbescape', name: 'unbescape', version: '1.1.6.RELEASE'
-    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.5.RELEASE'
-}
+    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-mail:$springBootVersion"
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version") {
+        exclude group: "org.jetbrains.kotlinx", module: "atomicfu-common"
+    }
+    
+    compile "com.google.firebase:firebase-admin:$firebaseAdmin_version"
+    compile "org.unbescape:unbescape:$unbescape_version"
+
+    testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+ }
+
+@Field
+Closure kotlinOptions
+@Field
+def exclude
