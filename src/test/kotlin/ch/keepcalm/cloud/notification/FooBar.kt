@@ -1,66 +1,39 @@
 package ch.keepcalm.cloud.notification
 
-import kotlinx.coroutines.experimental.Deferred
-import kotlinx.coroutines.experimental.GlobalScope
-import kotlinx.coroutines.experimental.async
-import kotlinx.coroutines.experimental.launch
 import java.net.URL
 
 
 fun main(args: Array<String>) {
+    println("FooBar")
 
-
-    GlobalScope.launch {
-        println("Hello from Kotlin Coroutines!")
-
-        measureTime {
-            val jokeListDeferred = mutableListOf<Deferred<String>>()
-            for (jokeId in 1..200) {
-                jokeListDeferred += async { "Joke for $jokeId is ${getJoke(jokeId.toString())}" }
-            }
-            for (joke in jokeListDeferred) {
-                println(joke.await())
-            }
+    measureTime {
+        val jokeList = mutableListOf<String>()
+        for (jokeId in 1..100) {
+            jokeList += "Joke for $jokeId is ${getJoke(jokeId.toString())}"
         }
-
-
-        measureTime {
-            val jokeList  = mutableListOf<String>()
-            for (jokeId in 1..200) {
-                jokeList += "Joke for $jokeId is ${getJoke(jokeId.toString())}"
-            }
-            for (joke in jokeList) {
-                println(joke)
-            }
+        for (joke in jokeList) {
+            println(joke)
         }
+        println("\n\n\n*************** caller IP is ${getIp()} ***************\n\n\n")
     }
 
     // Let the main function running
-    Thread.sleep(70000)
+    Thread.sleep(30000)
 }
 
 
-suspend fun measureTime(block: suspend () -> Unit) {
+private fun measureTime(block: () -> Unit) {
     val start = System.nanoTime()
     block()
     val end = System.nanoTime()
-    println("***************  ${(end - start) / 1.0e9} seconds ***************  ")
+    println("\n\n\n***************  ${(end - start) / 1.0e9} seconds ***************\n\n\n")
 }
 
 
+private fun getIp() =
+        URL("http://api.ipify.org").readText()
 
 
-
-
-fun getIp() {
-    val result = URL("http://api.ipify.org").readText()
-    println(result)
-}
-
-
-fun getJoke(jokeId: String = "random") =
+private fun getJoke(jokeId: String = "random") =
         URL("http://api.icndb.com/jokes/$jokeId").readText()
-
-
-
 
