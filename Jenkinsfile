@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'maven:3.6-jdk-8-alpine'
+      image 'gradle:4.10-jre8-slim'
       args '-v "$PWD":/usr/src/app'
     }
 
@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        sh 'mvn clean'
+        sh './gradlew clean'
       }
     }
   }
