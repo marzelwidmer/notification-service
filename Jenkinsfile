@@ -11,5 +11,15 @@ pipeline {
         sh './gradlew clean'
       }
     }
+    stage('Build') {
+      steps {
+        sh './gradlew build -x test'
+      }
+    }
+    stage('Test') {
+      steps {
+        sh './gradlew test'
+      }
+    }
   }
 }
